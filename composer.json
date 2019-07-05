@@ -10,8 +10,8 @@
         }
     ],
     "require": {
-        "php": ">= 7",
-        "drupol/phposinfo": "^1"
+        "php": "^7.1",
+        "drupol/phposinfo": "^1.1"
     },
     "require-dev": {
         "drupol/php-conventions": "^1",

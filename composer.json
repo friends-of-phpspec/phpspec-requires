@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": "^7.1",
-        "drupol/phposinfo": "^1.1"
+        "drupol/phposinfo": "^1.2"
     },
     "require-dev": {
         "drupol/php-conventions": "^1",

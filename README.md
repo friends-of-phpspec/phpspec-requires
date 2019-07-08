@@ -7,7 +7,9 @@
  [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/drupol/phpspec-requires/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/drupol/phpspec-requires/?branch=master)
  [![Mutation testing badge](https://badge.stryker-mutator.io/github.com/drupol/phpspec-requires/master)](https://stryker-mutator.github.io)
  [![License](https://img.shields.io/packagist/l/drupol/phpspec-requires.svg?style=flat-square)](https://packagist.org/packages/drupol/phpspec-requires)
-
+ [![Say Thanks!](https://img.shields.io/badge/Say-thanks-brightgreen.svg?style=flat-square)](https://saythanks.io/to/drupol)
+ [![Donate!](https://img.shields.io/badge/Donate-Paypal-brightgreen.svg?style=flat-square)](https://paypal.me/drupol)
+ 
 # PHPSpec requires extension
 
 A [PHPSpec](http://www.phpspec.net) extension that allows you to use the

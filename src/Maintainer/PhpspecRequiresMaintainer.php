@@ -60,7 +60,7 @@ class PhpspecRequiresMaintainer implements Maintainer
 
             switch ($type) {
                 case 'OS':
-                    if (!OsInfo::isOsName($value)) {
+                    if (!OsInfo::isOs($value)) {
                         throw new SkippingException(
                             \sprintf('This spec requires OS "%s".', $value)
                         );
@@ -69,7 +69,7 @@ class PhpspecRequiresMaintainer implements Maintainer
                     break;
 
                 case 'OSFAMILY':
-                    if (!OsInfo::isFamilyName($value)) {
+                    if (!OsInfo::isFamily($value)) {
                         throw new SkippingException(
                             \sprintf('This spec requires OS family "%s".', $value)
                         );

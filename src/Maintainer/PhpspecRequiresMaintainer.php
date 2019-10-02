@@ -1,16 +1,16 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace drupol\PhpspecRequires\Maintainer;
 
 use drupol\phposinfo\OsInfo;
-use PhpSpec\Loader\Node\ExampleNode;
-use PhpSpec\Runner\Maintainer\Maintainer;
-use PhpSpec\Specification;
-use PhpSpec\Runner\MatcherManager;
-use PhpSpec\Runner\CollaboratorManager;
 use PhpSpec\Exception\Example\SkippingException;
+use PhpSpec\Loader\Node\ExampleNode;
+use PhpSpec\Runner\CollaboratorManager;
+use PhpSpec\Runner\Maintainer\Maintainer;
+use PhpSpec\Runner\MatcherManager;
+use PhpSpec\Specification;
 
 /**
  * Class PhpspecRequiresMaintainer.
@@ -55,8 +55,8 @@ class PhpspecRequiresMaintainer implements Maintainer
         }
 
         foreach ($annotations as $annotation) {
-            $type = \substr($annotation, 0, \strpos($annotation, ' '));
-            $value = \substr($annotation, \strpos($annotation, ' ') + 1);
+            $type = \mb_substr($annotation, 0, \mb_strpos($annotation, ' '));
+            $value = \mb_substr($annotation, \mb_strpos($annotation, ' ') + 1);
 
             switch ($type) {
                 case 'OS':
@@ -67,7 +67,6 @@ class PhpspecRequiresMaintainer implements Maintainer
                     }
 
                     break;
-
                 case 'OSFAMILY':
                     if (!OsInfo::isFamily($value)) {
                         throw new SkippingException(
@@ -76,7 +75,6 @@ class PhpspecRequiresMaintainer implements Maintainer
                     }
 
                     break;
-
                 case 'function':
                     if (!\function_exists($value)) {
                         throw new SkippingException(
@@ -85,7 +83,6 @@ class PhpspecRequiresMaintainer implements Maintainer
                     }
 
                     break;
-
                 case 'extension':
                     if (!\extension_loaded($value)) {
                         throw new SkippingException(
@@ -94,7 +91,6 @@ class PhpspecRequiresMaintainer implements Maintainer
                     }
 
                     break;
-
                 case 'PHP':
                     $version = \explode('.', $value);
                     $versionId = $version[0] * 10000 + $version[1] * 100 + $version[2];
@@ -150,7 +146,7 @@ class PhpspecRequiresMaintainer implements Maintainer
                     )
                 ),
                 static function ($docline) use ($annotation) {
-                    return false !== \strpos($docline, $annotation);
+                    return false !== \mb_strpos($docline, $annotation);
                 }
             )
         );

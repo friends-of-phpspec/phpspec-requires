@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace drupol\PhpspecRequires\Maintainer;
+namespace FriendsOfPhpspec\PhpspecRequires\Maintainer;
 
 use drupol\phposinfo\OsInfo;
 use PhpSpec\Exception\Example\SkippingException;

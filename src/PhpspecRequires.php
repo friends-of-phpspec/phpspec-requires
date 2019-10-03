@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace drupol\PhpspecRequires;
+namespace FriendsOfPhpspec\PhpspecRequires;
 
-use drupol\PhpspecRequires\Maintainer\PhpspecRequiresMaintainer;
+use FriendsOfPhpspec\PhpspecRequires\Maintainer\PhpspecRequiresMaintainer;
 use PhpSpec\Extension;
 use PhpSpec\ServiceContainer;
 

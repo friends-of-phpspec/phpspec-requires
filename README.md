@@ -1,14 +1,9 @@
-[![Latest Stable Version](https://img.shields.io/packagist/v/drupol/phpspec-requires.svg?style=flat-square)](https://packagist.org/packages/drupol/phpspec-requires)
- [![GitHub stars](https://img.shields.io/github/stars/drupol/phpspec-requires.svg?style=flat-square)](https://packagist.org/packages/drupol/phpspec-requires)
- [![Total Downloads](https://img.shields.io/packagist/dt/drupol/phpspec-requires.svg?style=flat-square)](https://packagist.org/packages/drupol/phpspec-requires)
- [![Build Status](https://img.shields.io/travis/drupol/phpspec-requires/master.svg?style=flat-square)](https://travis-ci.org/drupol/phpspec-requires)
- [![Build Status](https://img.shields.io/appveyor/ci/drupol/phpspec-requires.svg?style=flat-square)](https://ci.appveyor.com/project/drupol/phpspec-requires)
- [![Scrutinizer code quality](https://img.shields.io/scrutinizer/quality/g/drupol/phpspec-requires/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/drupol/phpspec-requires/?branch=master)
- [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/drupol/phpspec-requires/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/drupol/phpspec-requires/?branch=master)
- [![Mutation testing badge](https://badge.stryker-mutator.io/github.com/drupol/phpspec-requires/master)](https://stryker-mutator.github.io)
- [![License](https://img.shields.io/packagist/l/drupol/phpspec-requires.svg?style=flat-square)](https://packagist.org/packages/drupol/phpspec-requires)
- [![Say Thanks!](https://img.shields.io/badge/Say-thanks-brightgreen.svg?style=flat-square)](https://saythanks.io/to/drupol)
- [![Donate!](https://img.shields.io/badge/Donate-Paypal-brightgreen.svg?style=flat-square)](https://paypal.me/drupol)
+[![Latest Stable Version](https://img.shields.io/packagist/v/friends-of-phpspec/phpspec-requires.svg?style=flat-square)](https://packagist.org/packages/friends-of-phpspec/phpspec-requires)
+ [![GitHub stars](https://img.shields.io/github/stars/friends-of-phpspec/phpspec-requires.svg?style=flat-square)](https://packagist.org/packages/friends-of-phpspec/phpspec-requires)
+ [![Total Downloads](https://img.shields.io/packagist/dt/friends-of-phpspec/phpspec-requires.svg?style=flat-square)](https://packagist.org/packages/friends-of-phpspec/phpspec-requires)
+ [![Build Status](https://img.shields.io/travis/friends-of-phpspec/phpspec-requires/master.svg?style=flat-square)](https://travis-ci.org/friends-of-phpspec/phpspec-requires)
+ [![Scrutinizer code quality](https://img.shields.io/scrutinizer/quality/g/friends-of-phpspec/phpspec-requires/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/friends-of-phpspec/phpspec-requires/?branch=master)
+ [![License](https://img.shields.io/packagist/l/friends-of-phpspec/phpspec-requires.svg?style=flat-square)](https://packagist.org/packages/friends-of-phpspec/phpspec-requires)
  
 # PHPSpec requires extension
 
@@ -17,8 +12,8 @@ annotation `@requires`.
 
 ## Installation
 
-```yaml
-composer require drupol/phpspec-requires --dev
+```shell script
+composer require friends-of-phpspec/phpspec-requires --dev
 ```
 
 ## Usage
@@ -27,10 +22,11 @@ Enable extension in `phpspec.yml` (or `phpspec.yml.dist`) file:
 
 ```yaml
 extensions:
-  drupol\PhpspecRequires\PhpspecRequires: ~
+  FriendsOfPhpspec\PhpspecRequires\PhpspecRequires: ~
 ```
 
-Then, you can use the annotation `@requires` in the documentation block of your spec methods.
+Then, you can use the annotation `@requires` in the documentation block of your
+spec methods.
 
 ```php
 /**
@@ -70,6 +66,11 @@ public function it_will_be_tested_only_if_php_version_is_equal_or_greater() {
 
 ```
 
-# Contributing
+# Todo
 
-Feel free to contribute to this library by sending Github pull requests. I'm quite reactive :-)
+* Tests
+
+## Contributing
+
+See the file [CONTRIBUTING.md](.github/CONTRIBUTING.md) but feel free to
+contribute to this library by sending Github pull requests.

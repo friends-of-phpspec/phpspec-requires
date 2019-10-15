@@ -15,12 +15,13 @@ class PhpspecRequires implements Extension
      */
     public function load(ServiceContainer $container, array $params)
     {
-        $container->define(
-            'runner.maintainers.requires',
-            static function (ServiceContainer\IndexedServiceContainer $c) {
-                return new PhpspecRequiresMaintainer();
-            },
-            ['runner.maintainers']
-        );
+        $container
+            ->define(
+                'runner.maintainers.requires',
+                static function (ServiceContainer\IndexedServiceContainer $c) {
+                    return new PhpspecRequiresMaintainer();
+                },
+                ['runner.maintainers']
+            );
     }
 }

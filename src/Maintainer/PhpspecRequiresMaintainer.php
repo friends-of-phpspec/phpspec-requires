@@ -45,10 +45,11 @@ class PhpspecRequiresMaintainer implements Maintainer
         MatcherManager $matchers,
         CollaboratorManager $collaborators
     ): void {
-        $annotations = $this->getAnnotation(
-            '@requires',
-            $example->getFunctionReflection()->getDocComment()
-        );
+        $annotations = $this
+            ->getAnnotation(
+                '@requires',
+                $example->getFunctionReflection()->getDocComment()
+            );
 
         if (false === $annotations) {
             return;
@@ -124,8 +125,7 @@ class PhpspecRequiresMaintainer implements Maintainer
      */
     protected function getAnnotation($annotation, $docComment): array
     {
-        return
-        \array_map(
+        return \array_map(
             static function ($tag) use ($annotation) {
                 $regex = \sprintf('#%s ([^ ].*)#', $annotation);
 

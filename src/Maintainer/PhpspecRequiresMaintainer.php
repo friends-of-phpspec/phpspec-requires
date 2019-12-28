@@ -12,6 +12,11 @@ use PhpSpec\Runner\Maintainer\Maintainer;
 use PhpSpec\Runner\MatcherManager;
 use PhpSpec\Specification;
 
+use function extension_loaded;
+use function function_exists;
+
+use const PHP_VERSION_ID;
+
 /**
  * Class PhpspecRequiresMaintainer.
  */
@@ -56,14 +61,14 @@ class PhpspecRequiresMaintainer implements Maintainer
         }
 
         foreach ($annotations as $annotation) {
-            $type = \mb_substr($annotation, 0, \mb_strpos($annotation, ' '));
-            $value = \mb_substr($annotation, \mb_strpos($annotation, ' ') + 1);
+            $type = mb_substr($annotation, 0, mb_strpos($annotation, ' '));
+            $value = mb_substr($annotation, mb_strpos($annotation, ' ') + 1);
 
             switch ($type) {
                 case 'OS':
                     if (!OsInfo::isOs($value)) {
                         throw new SkippingException(
-                            \sprintf('This spec requires OS "%s".', $value)
+                            sprintf('This spec requires OS "%s".', $value)
                         );
                     }
 
@@ -71,34 +76,34 @@ class PhpspecRequiresMaintainer implements Maintainer
                 case 'OSFAMILY':
                     if (!OsInfo::isFamily($value)) {
                         throw new SkippingException(
-                            \sprintf('This spec requires OS family "%s".', $value)
+                            sprintf('This spec requires OS family "%s".', $value)
                         );
                     }
 
                     break;
                 case 'function':
-                    if (!\function_exists($value)) {
+                    if (!function_exists($value)) {
                         throw new SkippingException(
-                            \sprintf('This spec requires the function "%s".', $value)
+                            sprintf('This spec requires the function "%s".', $value)
                         );
                     }
 
                     break;
                 case 'extension':
-                    if (!\extension_loaded($value)) {
+                    if (!extension_loaded($value)) {
                         throw new SkippingException(
-                            \sprintf('This spec requires the PHP extension "%s".', $value)
+                            sprintf('This spec requires the PHP extension "%s".', $value)
                         );
                     }
 
                     break;
                 case 'PHP':
-                    $version = \explode('.', $value);
+                    $version = explode('.', $value);
                     $versionId = $version[0] * 10000 + $version[1] * 100 + $version[2];
 
-                    if (\PHP_VERSION_ID < $versionId) {
+                    if (PHP_VERSION_ID < $versionId) {
                         throw new SkippingException(
-                            \sprintf('This spec requires the PHP version "%s" or greater.', $value)
+                            sprintf('This spec requires the PHP version "%s" or greater.', $value)
                         );
                     }
 
@@ -125,20 +130,20 @@ class PhpspecRequiresMaintainer implements Maintainer
      */
     protected function getAnnotation($annotation, $docComment): array
     {
-        return \array_map(
+        return array_map(
             static function ($tag) use ($annotation) {
-                $regex = \sprintf('#%s ([^ ].*)#', $annotation);
+                $regex = sprintf('#%s ([^ ].*)#', $annotation);
 
-                \preg_match($regex, $tag, $match);
+                preg_match($regex, $tag, $match);
 
                 return $match[1];
             },
-            \array_filter(
-                \array_map(
+            array_filter(
+                array_map(
                     'trim',
-                    \explode(
+                    explode(
                         "\n",
-                        \str_replace(
+                        str_replace(
                             "\r\n",
                             "\n",
                             $docComment
@@ -146,7 +151,7 @@ class PhpspecRequiresMaintainer implements Maintainer
                     )
                 ),
                 static function ($docline) use ($annotation) {
-                    return false !== \mb_strpos($docline, $annotation);
+                    return false !== mb_strpos($docline, $annotation);
                 }
             )
         );

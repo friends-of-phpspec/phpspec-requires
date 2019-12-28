@@ -46,6 +46,3 @@ jobs:
               run: vendor/bin/grumphp run
               env:
                   STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
-
-            - name: Scrutinizer
-              run: vendor/bin/ocular code-coverage:upload --format=php-clover build/logs/clover.xml
